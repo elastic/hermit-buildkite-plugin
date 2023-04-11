@@ -1,0 +1,7 @@
+name: Hermit Buildkite Plugin
+description: Activate hermit environment to use and manage packages
+author: https://github.com/navyau09
+requirements: []
+configuration:
+  properties: {}
+  additionalProperties: false

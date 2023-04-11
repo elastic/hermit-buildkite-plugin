@@ -1,0 +1,14 @@
+steps:
+  - label: ":pre-commit: Pre-commit"
+    command: pre-commit run --from-ref origin/HEAD --to-ref HEAD --show-diff-on-failure
+    plugins:
+      - elastic/hermit#v1.0.0
+    agents:
+      image: "docker.elastic.co/ci-agent-images/ubuntu-build-essential"
+  - label: ":sparkles: Buildkite plugin Lint"
+    plugins:
+      - plugin-linter#v3.0.0:
+          id: elastic/hermit
+    agents:
+      provider: "gcp"
+      image: family/ci-ubuntu-2204
