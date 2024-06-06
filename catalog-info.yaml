@@ -22,7 +22,7 @@ spec:
       description: 
     spec:
       repository: elastic/hermit-buildkite-plugin
-      pipeline_file: ".buildkite/pipeline.yml"
+      pipeline_file: ".buildkite/pipeline.yaml"
       teams:
         platform-dev-flow:
           access_level: MANAGE_BUILD_AND_READ
