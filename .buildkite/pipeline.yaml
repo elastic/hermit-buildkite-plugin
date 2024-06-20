@@ -11,4 +11,4 @@ steps:
           id: elastic/hermit
     agents:
       provider: "gcp"
-      image: family/ci-ubuntu-2204
+      image: family/core-ubuntu-2204
