@@ -3,4 +3,23 @@
 set -euo pipefail
 
 echo "~~~ Init Hermit environment"
-. bin/activate-hermit && export PATH="$PATH:/var/lib/buildkite-agent/bin"
+
+max_retries=${BUILDKITE_PLUGIN_HERMIT_MAX_RETRIES:-3}
+retry_delay=${BUILDKITE_PLUGIN_HERMIT_RETRY_DELAY:-1}
+
+retries=0
+while [ "$retries" -le "$max_retries" ]; do
+  if . bin/activate-hermit; then
+    break
+  else
+    if [ "$retries" -eq "$max_retries" ]; then
+      echo "Failed to activate Hermit environment after $max_retries attempts"
+      exit 1
+    fi
+    echo "Failed to activate Hermit environment, retrying in $retry_delay seconds..."
+    sleep "$retry_delay"
+  fi
+  retries=$((retries + 1))
+done
+
+export PATH="$PATH:/var/lib/buildkite-agent/bin"

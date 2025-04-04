@@ -3,5 +3,13 @@ description: Activate hermit environment to use and manage packages
 author: https://github.com/navyau09
 requirements: []
 configuration:
-  properties: {}
+  properties:
+    max_retries:
+      type: number
+      default: 3
+      description: The maximum number of retries for hermit activation
+    retry_delay:
+      type: number
+      default: 1
+      description: The number of seconds to wait between retries
   additionalProperties: false
