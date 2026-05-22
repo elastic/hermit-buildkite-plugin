@@ -19,7 +19,7 @@ spec:
     kind: Pipeline
     metadata:
       name: hermit-buildkite-plugin
-      description: 
+      description: ""
     spec:
       repository: elastic/hermit-buildkite-plugin
       pipeline_file: ".buildkite/pipeline.yaml"
