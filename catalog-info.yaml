@@ -12,19 +12,19 @@ metadata:
 
 spec:
   type: buildkite-pipeline
-  owner: group:platform-dev-flow
+  owner: group:ci-systems
   system: buildkite
   implementation:
     apiVersion: buildkite.elastic.dev/v1
     kind: Pipeline
     metadata:
       name: hermit-buildkite-plugin
-      description: 
+      description: ""
     spec:
       repository: elastic/hermit-buildkite-plugin
       pipeline_file: ".buildkite/pipeline.yaml"
       teams:
-        platform-dev-flow:
+        ci-systems:
           access_level: MANAGE_BUILD_AND_READ
         everyone:
           access_level: READ_ONLY
