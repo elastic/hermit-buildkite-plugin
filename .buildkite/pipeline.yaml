@@ -1,4 +1,9 @@
 steps:
+  - label: ":catalog-info: Validate catalog-info.yaml"
+    command: /agent/check-catalog-info.sh
+    if_changed: catalog-info.yaml
+    agents:
+      image: "docker.elastic.co/ci-agent-images/pipelib:0.35.0@sha256:4e521947861821d7607b26b95c141f47e6a8794c6b15e53b1813dafea61a557b"
   - label: ":pre-commit: Pre-commit"
     command: pre-commit run --from-ref origin/HEAD --to-ref HEAD --show-diff-on-failure
     plugins:
